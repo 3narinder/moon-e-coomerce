@@ -24,6 +24,16 @@ export const product3 = "/images/products/product3.png";
 export const product4 = "/images/products/product4.png";
 export const product5 = "/images/products/product5.png";
 
+//about
+export const aboutPoster1 = "/images/about-poster1.png";
+export const aboutMobilePoster1 = "/images/about-mobile-poster1.png";
+export const aboutPoster2 = "/images/about-poster2.png";
+export const aboutMobilePoster2 = "/images/about-mobile-poster2.png";
+export const aboutPoster3 = "/images/about-poster3.png";
+export const aboutMobilePoster3 = "/images/about-mobile-poster3.png";
+export const aboutPoster4 = "/images/about-poster4.png";
+export const aboutMobilePoster4 = "/images/about-mobile-poster4.png";
+
 //contact
 export const contactHeroDesktop = "/images/contact-hero.png";
 export const contactHeroMobile = "/images/contact-hero-mobile.png";

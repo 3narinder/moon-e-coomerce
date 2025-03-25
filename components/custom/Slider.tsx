@@ -9,10 +9,10 @@ interface CustomSliderProps {
 }
 
 export const CustomSlider = ({ children }: CustomSliderProps) => {
-  const slidesArray = Children.toArray(children); // Ensures children is an array
+  const slidesArray = Children.toArray(children);
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(true);
   const totalSlides = slidesArray.length;
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -33,55 +33,54 @@ export const CustomSlider = ({ children }: CustomSliderProps) => {
 
   const nextSlide = () => {
     if (currentIndex >= totalSlides) {
+      setIsTransitioning(true);
       setCurrentIndex(totalSlides + 1);
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(1);
+      }, 500);
     } else {
+      setIsTransitioning(true);
       setCurrentIndex((prev) => prev + 1);
     }
   };
 
   const prevSlide = () => {
     if (currentIndex <= 0) {
+      setIsTransitioning(true);
       setCurrentIndex(-1);
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(totalSlides);
+      }, 500);
     } else {
+      setIsTransitioning(true);
       setCurrentIndex((prev) => prev - 1);
     }
-  };
-
-  const handleTransitionEnd = () => {
-    if (currentIndex === totalSlides + 1) {
-      setIsAnimating(false);
-      setCurrentIndex(1);
-    }
-    if (currentIndex === -1) {
-      setIsAnimating(false);
-      setCurrentIndex(totalSlides);
-    }
-    setTimeout(() => setIsAnimating(true), 50);
   };
 
   return (
     <div className="relative overflow-hidden w-full">
       <div
-        className={`flex ${
-          isAnimating ? "transition-transform duration-500 ease-in-out" : ""
+        className={`flex transition-transform duration-500 ease-in-out ${
+          isTransitioning ? "" : "!transition-none"
         }`}
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        onTransitionEnd={handleTransitionEnd}
+        style={{ transform: `translateX(-${currentIndex * 75}%)` }}
       >
-        {/* Clone last slide for smooth looping */}
-        <div className="flex-shrink-0 w-full">
+        {/* Clone last slide for seamless loop */}
+        <div className="flex-shrink-0 w-[75%] md:w-[65%]">
           {slidesArray[totalSlides - 1]}
         </div>
 
         {/* Actual slides */}
         {slidesArray.map((child, index) => (
-          <div key={index} className="flex-shrink-0 w-full">
+          <div key={index} className="flex-shrink-0 w-[75%] md:w-[65%]">
             {child}
           </div>
         ))}
 
-        {/* Clone first slide for smooth looping */}
-        <div className="flex-shrink-0 w-full">{slidesArray[0]}</div>
+        {/* Clone first slide for seamless loop */}
+        <div className="flex-shrink-0 w-[75%] md:w-[65%]">{slidesArray[0]}</div>
       </div>
 
       <Image

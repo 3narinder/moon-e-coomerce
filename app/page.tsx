@@ -64,12 +64,11 @@ const HomePage = () => {
         <div className="md:hidden">
           <CustomSlider items={categories}>
             {categories.map((category, index) => (
-              <div
+              <CategoryCard
                 key={index}
-                className="flex-shrink-0 w-full flex justify-center"
-              >
-                <CategoryCard img={category?.img} text={category?.text} />
-              </div>
+                img={category?.img}
+                text={category?.text}
+              />
             ))}
           </CustomSlider>
         </div>
