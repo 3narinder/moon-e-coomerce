@@ -1,5 +1,6 @@
 //General
 export const logoLight = "/images/logo-light.png";
+export const logoBrown = "/images/logo-brown.png";
 
 //Home
 export const homeHeroDesktop = "/images/home-hero.png";
@@ -34,12 +35,17 @@ export const aboutMobilePoster3 = "/images/about-mobile-poster3.png";
 export const aboutPoster4 = "/images/about-poster4.png";
 export const aboutMobilePoster4 = "/images/about-mobile-poster4.png";
 
+export const teamMember1 = "/images/teamMember1.png";
+export const teamMember2 = "/images/teamMember2.png";
+export const teamMember3 = "/images/teamMember3.png";
+export const teamMember4 = "/images/teamMember4.png";
+
 //contact
-export const contactHeroDesktop = "/images/contact-hero.png";
+export const contactHeroDesktop = "/images/contact-hero-desktop.png";
 export const contactHeroMobile = "/images/contact-hero-mobile.png";
+export const contactMap = "/images/contact-map.png";
+export const contactMobileMap = "/images/contact-mobile-map.png";
 
 //icons
 export const leftIcon = "/icons/Chevron-left.png";
 export const rightIcon = "/icons/Chevron-right.png";
-
-//products

@@ -1,5 +1,8 @@
+import { CustomSlider } from "@/components/custom/Slider";
+import TeamCard from "@/components/custom/TeamCard";
 import Poster from "@/components/Poster";
 import SignUpSection from "@/components/SignUpSection";
+import { team } from "@/constants";
 import {
   aboutMobilePoster1,
   aboutMobilePoster2,
@@ -14,7 +17,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center">
       {/* page heading */}
       <div className="flex flex-col text-center lg:py-16 py-12">
         <h1 className="heading-8 uppercase font-semibold tracking-wider text-warm-black mb-4">
@@ -149,6 +152,27 @@ const page = () => {
             </div>
           </div>
         </Poster>
+      </div>
+
+      {/* Team */}
+      <div className="lg:mx-32 px-2 lg:py-20 py-12">
+        <div className="text-center lg:mb-12 mb-6 uppercase lg:heading-8 heading-6 font-semibold tracking-wider text-warm-black">
+          meet our team
+        </div>
+
+        <div className="hidden md:grid grid-cols-4 lg:gap-8 md:gap-4">
+          {team.map((teamMember, index) => (
+            <TeamCard key={index} teamMember={teamMember} />
+          ))}
+        </div>
+
+        <div className="md:hidden">
+          <CustomSlider items={team}>
+            {team.map((teamMember, index) => (
+              <TeamCard key={index} teamMember={teamMember} />
+            ))}
+          </CustomSlider>
+        </div>
       </div>
 
       <SignUpSection />

@@ -11,3 +11,10 @@ export type Product = {
   image: string;
   description: string;
 };
+
+export type TeamMember = {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+};

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface ButtonProps {
   text: string;
@@ -8,7 +7,7 @@ interface ButtonProps {
   height?: number;
   onClick?: () => void;
   disabled?: boolean;
-  icon?: boolean;
+  icon?: ReactNode; // Accepts React components (icons)
 }
 
 const Button = ({
@@ -24,7 +23,6 @@ const Button = ({
     switch (variant) {
       case "fill":
         return "bg-neutral-8 text-neutral-2";
-
       case "white":
         return "bg-white text-green-dark";
       case "border":
@@ -42,18 +40,13 @@ const Button = ({
     <button
       disabled={disabled || variant === "disabled"}
       onClick={onClick}
-      className={`px-4 py-2 flex items-center justify-center gap-2 cursor-pointer w-full ${getButtonClass()}`}
+      className={`px-4 py-2 flex items-center justify-center gap-1 cursor-pointer w-full ${getButtonClass()}`}
     >
-      <span className="text-display-2 tracking-wide font-semibold">{text}</span>
+      <span className="text-display-1 tracking-wider font-semibold">
+        {text}
+      </span>
 
-      {icon && (
-        <Image
-          src="/icons/Arrow-Right.png"
-          alt="arrow"
-          width={width}
-          height={height}
-        />
-      )}
+      {icon && <span>{icon}</span>}
     </button>
   );
 };

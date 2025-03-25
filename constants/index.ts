@@ -1,4 +1,14 @@
-import { product1, product2, product3, product4, product5 } from "./Images";
+import {
+  product1,
+  product2,
+  product3,
+  product4,
+  product5,
+  teamMember1,
+  teamMember2,
+  teamMember3,
+  teamMember4,
+} from "./Images";
 
 export const NAV_LINKS = [
   { name: "Home", href: "/", icon: "/icons/home_fill.png" },
@@ -189,3 +199,32 @@ export const products = [
       "A traditional handcrafted clay water jug that keeps water naturally cool and fresh.",
   },
 ];
+
+export const team = [
+  {
+    id: 1,
+    name: "Brandon Johnson",
+    position: "Team Lead",
+    image: teamMember1,
+  },
+  {
+    id: 2,
+    name: "Alice Johnson",
+    position: "Frontend Developer",
+    image: teamMember2,
+  },
+  {
+    id: 3,
+    name: "Charlie Brown",
+    position: "Backend Developer",
+    image: teamMember3,
+  },
+  {
+    id: 4,
+    name: "Diana Prince",
+    position: "UI/UX Designer",
+    image: teamMember4,
+  },
+];
+
+console.log(team);

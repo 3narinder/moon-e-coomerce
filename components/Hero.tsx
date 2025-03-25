@@ -41,7 +41,7 @@ const Hero = ({
       <div
         className={`lg:absolute lg:w-96 w-full ${posterColor} flex flex-col items-center justify-center min-h-[50vh] lg:min-h-[80vh] z-10 left-0 lg:translate-x-1/2 p-8`}
       >
-        <Image src={logo} alt="logo" width={60} height={38} className="mb-8" />
+        <Image src={logo} alt="logo" width={60} height={38} className="mb-6" />
 
         {children}
       </div>
