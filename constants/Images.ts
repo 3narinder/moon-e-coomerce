@@ -24,6 +24,11 @@ export const product2 = "/images/products/product2.png";
 export const product3 = "/images/products/product3.png";
 export const product4 = "/images/products/product4.png";
 export const product5 = "/images/products/product5.png";
+export const product6 = "/images/products/product6.png";
+export const product7 = "/images/products/product7.png";
+export const product8 = "/images/products/product8.png";
+export const product9 = "/images/products/product9.png";
+export const product10 = "/images/products/product10.png";
 
 //about
 export const aboutPoster1 = "/images/about-poster1.png";

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   variant?: "fill" | "border" | "footer" | "disabled" | "white";
   width?: number;
   height?: number;
@@ -13,8 +13,6 @@ interface ButtonProps {
 const Button = ({
   text,
   variant = "fill",
-  width = 11,
-  height = 11,
   onClick,
   disabled,
   icon,

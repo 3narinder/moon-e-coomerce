@@ -1,13 +1,10 @@
-import ContactForm from "@/components/custom/ContactForm";
-import CustomForm from "@/components/custom/CustomForm";
-import InputField from "@/components/custom/InputField";
+import ContactForm from "@/components/ContactForm";
 import SocialMedia from "@/components/custom/SocialMedia";
 import Hero from "@/components/Hero";
 import {
   contactHeroDesktop,
   contactHeroMobile,
   contactMap,
-  contactMobileMap,
   logoBrown,
 } from "@/constants/Images";
 import Image from "next/image";
@@ -17,10 +14,6 @@ import { BsYoutube } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
-  const handleFormSubmit = (data: Record<string, string>) => {
-    console.log("Form Submitted:", data);
-  };
-
   return (
     <div className="flex flex-col items-center">
       {/* hero */}

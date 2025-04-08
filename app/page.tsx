@@ -97,7 +97,7 @@ const HomePage = () => {
         <SectionHeading text="best sellers" />
 
         <div className="lg:pl-12">
-          <ProductList />
+          <ProductList grid4 />
         </div>
       </div>
 
@@ -145,7 +145,7 @@ const HomePage = () => {
         <SectionHeading text="discover latest arrivals" />
 
         <div className="lg:pl-12">
-          <ProductList limit={4} />
+          <ProductList grid4 limit={4} />
         </div>
       </div>
 

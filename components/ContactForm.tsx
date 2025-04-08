@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import InputField from "@/components/custom/InputField";
-import Button from "./Button";
+import Button from "./custom/Button";
 import { FaArrowRight } from "react-icons/fa";
 
 const ContactForm = () => {
@@ -23,6 +23,7 @@ const ContactForm = () => {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Server Response:", formData);
+    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   return (
@@ -43,7 +44,7 @@ const ContactForm = () => {
           type="email"
           label="Email"
           value={formData.email}
-          name="fullName"
+          name="email"
           onChange={handleInputChange}
         />
       </div>

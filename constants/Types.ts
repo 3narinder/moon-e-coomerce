@@ -5,10 +5,9 @@ export type Product = {
   sold: number;
   dateOfArrival: string;
   category: string;
-  color: string;
-  tag: string[];
+  colors: string[];
   categories: string[];
-  image: string;
+  image: string[];
   description: string;
 };
 

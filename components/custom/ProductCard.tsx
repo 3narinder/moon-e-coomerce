@@ -8,11 +8,16 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const randomIndex = Math.floor(
+    Math.random() * Math.min(10, product?.image?.length)
+  );
+  const imageUrl = product.image[randomIndex];
+
   return (
     <div className="flex flex-col md:w-[225px] w-[160px] md:h-auto h-[440px] cursor-pointer">
       <div className="flex flex-col">
         <Image
-          src={product?.image}
+          src={imageUrl}
           alt="product image"
           width={255}
           height={331}

@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md py-5 lg:px-32 px-8 flex items-center justify-between z-50">
+    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md py-5 lg:px-32 px-8 flex items-center justify-between z-50 border border-b-neutral-5">
       {/* Mobile Hamburger Menu */}
       <div className="lg:hidden flex items-center z-50">
         <Image
