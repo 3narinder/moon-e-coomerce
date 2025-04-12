@@ -8,15 +8,14 @@ import StarRating from "@/components/custom/StarRatings";
 import ProductActions from "@/components/ProductAction";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import AccordionDetail from "@/components/custom/Accordion";
 import ProductAccordion from "@/components/ProductAccordion";
 
 interface ProductPageProps {
-  params: { id: string };
+  params?: { id?: string };
 }
 
 const ProductPage = ({ params }: ProductPageProps) => {
-  const product = products?.find((p) => p.id.toString() === params.id);
+  const product = products?.find((p) => p?.id?.toString() === params?.id);
 
   if (!product) return notFound();
 
