@@ -24,7 +24,7 @@ const page = () => {
           about moon
         </h1>
         <h1 className="text-display-2 text-neutral-7">
-          Moon's handmade ceramic products
+          Moon handmade ceramic products
           <span className="lg:hidden inline">
             {" "}
             <br />{" "}
@@ -34,7 +34,7 @@ const page = () => {
             {" "}
             <br />{" "}
           </span>
-          since 1650, let's
+          since 1650, let us
           <span className="lg:hidden inline">
             {" "}
             <br />{" "}
