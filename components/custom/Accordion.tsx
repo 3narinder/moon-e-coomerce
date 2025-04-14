@@ -25,7 +25,7 @@ const Accordion = ({ title, detail, isOpen, onClick }: AccordionProps) => {
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         className="overflow-hidden"
       >
-        <ul className="mt-2 space-y-1 text-display-2 text-warm-black px-4 pb-2">
+        <ul className="space-y-1 text-display-2  text-warm-black px-4 pb-2">
           {detail.map(
             (item, index) =>
               item && (

@@ -12,6 +12,11 @@ const ProductAccordion = () => {
       title: "detail",
       listDetail: ["Ceramic ware cups", "made in Japan"],
     },
+    {
+      id: 3,
+      title: "reviews",
+      listDetail: ["One of the best product.", "Must try."],
+    },
   ];
 
   return (

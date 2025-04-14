@@ -23,10 +23,10 @@ export const NAV_LINKS = [
 ];
 
 export const NAV_ICONS = [
-  { src: "/icons/Search.png", alt: "Search" },
-  { src: "/icons/Avatar.png", alt: "Profile" },
-  { src: "/icons/Heart.png", alt: "Wishlist" },
-  { src: "/icons/Shopping_cart.png", alt: "Cart" },
+  { src: "/icons/Search.png", alt: "Search", href: "/" },
+  { src: "/icons/Avatar.png", alt: "Profile", href: "cart" },
+  { src: "/icons/Heart.png", alt: "Wishlist", href: "cart" },
+  { src: "/icons/Shopping_cart.png", alt: "Cart", href: "cart" },
 ];
 
 export const FOOTER_LINKS = [

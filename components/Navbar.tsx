@@ -91,8 +91,9 @@ const Navbar = () => {
       <div className="relative flex items-center gap-4">
         <div className="flex items-center gap-2">
           {NAV_ICONS.map((icon, index) => (
-            <div
+            <Link
               key={index}
+              href={icon?.href}
               className={`relative flex items-center justify-center w-10 h-10 ${
                 icon.alt !== "Cart" ? "hidden lg:flex" : "flex"
               }`}
@@ -104,7 +105,7 @@ const Navbar = () => {
                 height={24}
                 className="cursor-pointer"
               />
-            </div>
+            </Link>
           ))}
         </div>
 
