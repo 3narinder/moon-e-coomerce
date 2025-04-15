@@ -7,7 +7,7 @@ interface ButtonProps {
   height?: number;
   onClick?: () => void;
   disabled?: boolean;
-  icon?: ReactNode; // Accepts React components (icons)
+  icon?: ReactNode;
 }
 
 const Button = ({
@@ -40,11 +40,11 @@ const Button = ({
       onClick={onClick}
       className={`px-4 py-2 flex items-center justify-center gap-1 cursor-pointer w-full ${getButtonClass()}`}
     >
-      <span className="text-display-1 tracking-wider font-semibold">
+      {icon && <span>{icon}</span>}
+
+      <span className="text-display-1 tracking-wider font-semibold ml-2">
         {text}
       </span>
-
-      {icon && <span>{icon}</span>}
     </button>
   );
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AppProviders } from "@/components/Provider"; // ✅ FIXED
 
 export const metadata: Metadata = {
   title: "Moon",
@@ -17,10 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased flex flex-col">
-        {" "}
-        <Navbar />
-        <main className="flex-1 pt-[75px]"> {children}</main>
-        <Footer />
+        <AppProviders>
+          <Navbar />
+          <main className="flex-1 pt-[75px]">{children}</main>
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

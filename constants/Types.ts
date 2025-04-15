@@ -9,6 +9,7 @@ export type Product = {
   categories: string[];
   image: string[];
   description: string;
+  quantity?: number | undefined;
 };
 
 export type TeamMember = {

@@ -3,11 +3,11 @@
 import React from "react";
 
 interface InputProps {
-  type: string;
-  name: string;
-  value: string;
-  label: string;
-  onChange: (
+  type?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   isTextArea?: boolean; // Toggle between input and textarea
@@ -21,7 +21,7 @@ const InputField: React.FC<InputProps> = ({
   label,
   onChange,
   isTextArea = false,
-  textAreaPlaceholder = "Enter your message", // Default placeholder for textarea
+  textAreaPlaceholder = "Enter your message",
 }) => {
   return (
     <div className="flex flex-col w-full">

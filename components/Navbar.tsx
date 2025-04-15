@@ -1,21 +1,18 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { NAV_LINKS, NAV_ICONS } from "@/constants";
+import { NAV_LINKS, NAV_ICONS_NAVBAR, NAV_ICONS_DROPDOWN } from "@/constants";
 import Button from "./custom/Button";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { FaGoogle } from "react-icons/fa";
 
 const Navbar = () => {
-  const router = useRouter();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleLogout = () => {
-    console.log("logout");
-
-    router.push("/auth/login");
-  };
+  const { data: session } = useSession();
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md py-5 lg:px-32 px-8 flex items-center justify-between z-50 border border-b-neutral-5">
@@ -81,36 +78,91 @@ const Navbar = () => {
             </div>
 
             <div className="md:w-1/3 w-full md:px-0 px-4">
-              <Button onClick={handleLogout} text="Logout" />
+              <Button onClick={() => signOut()} text="Logout" />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Navigation Icons & Logout Button */}
+      {/* Right Icons & Auth Button */}
       <div className="relative flex items-center gap-4">
         <div className="flex items-center gap-2">
-          {NAV_ICONS.map((icon, index) => (
-            <Link
-              key={index}
-              href={icon?.href}
-              className={`relative flex items-center justify-center w-10 h-10 ${
-                icon.alt !== "Cart" ? "hidden lg:flex" : "flex"
-              }`}
-            >
-              <Image
-                src={icon.src}
-                alt={icon.alt}
-                width={24}
-                height={24}
-                className="cursor-pointer"
-              />
-            </Link>
-          ))}
+          {NAV_ICONS_NAVBAR.filter((icon) => {
+            if (icon.alt === "Profile" && !session?.user) return false;
+            return true;
+          }).map((icon, index) =>
+            icon.alt === "Profile" ? (
+              <div
+                key={index}
+                className="relative hidden lg:flex cursor-pointer"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                <Image src={icon.src} alt={icon.alt} width={24} height={24} />
+                {/* Dropdown */}
+                {isDropdownOpen && (
+                  <div className="absolute right-0 top-12 bg-white shadow-lg rounded-lg w-48 py-2 z-50">
+                    {NAV_ICONS_DROPDOWN.map((item, idx) => (
+                      <Link
+                        key={idx}
+                        href={item.href}
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 text-sm"
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={18}
+                          height={18}
+                        />
+                        <span>{item.alt}</span>
+                      </Link>
+                    ))}
+
+                    <div className="px-2">
+                      <Button
+                        onClick={() => {
+                          setIsDropdownOpen(false);
+                          signOut();
+                        }}
+                        text="Logout"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={index}
+                href={icon.href}
+                className="relative flex items-center justify-center w-10 h-10"
+              >
+                <Image
+                  src={icon.src}
+                  alt={icon.alt}
+                  width={24}
+                  height={24}
+                  className="cursor-pointer"
+                />
+              </Link>
+            )
+          )}
         </div>
 
-        <div className="lg:flex hidden">
-          <Button onClick={handleLogout} text="Logout" />
+        {/* Auth Section */}
+        <div className="lg:flex items-center gap-3 hidden">
+          {session?.user ? (
+            <>
+              <span className="hidden lg:block text-display-2 font-semibold  text-neutral-7 capitalize">
+                Welcome, {session?.user?.name?.split(" ")[0]}
+              </span>
+            </>
+          ) : (
+            <Button
+              onClick={() => signIn("google")}
+              text="Google Login"
+              icon={<FaGoogle />}
+            />
+          )}
         </div>
       </div>
     </nav>

@@ -22,11 +22,15 @@ export const NAV_LINKS = [
   { name: "Contact", href: "/contact", icon: "/icons/Phone.png" },
 ];
 
-export const NAV_ICONS = [
+export const NAV_ICONS_NAVBAR = [
   { src: "/icons/Search.png", alt: "Search", href: "/" },
+  { src: "/icons/Shopping_cart.png", alt: "Cart", href: "cart" },
+  { src: "/icons/Avatar.png", alt: "Profile", href: "cart" },
+];
+
+export const NAV_ICONS_DROPDOWN = [
   { src: "/icons/Avatar.png", alt: "Profile", href: "cart" },
   { src: "/icons/Heart.png", alt: "Wishlist", href: "cart" },
-  { src: "/icons/Shopping_cart.png", alt: "Cart", href: "cart" },
 ];
 
 export const FOOTER_LINKS = [
@@ -343,6 +347,85 @@ export const products = [
     image: [product6, product7, product8, product9, product10],
     description:
       "A traditional handcrafted clay water jug that keeps water naturally cool and fresh.",
+  },
+];
+
+export const cartProducts = [
+  {
+    id: 1,
+    name: "Handcrafted Ceramic Dinner Set",
+    price: 129.99,
+    sold: 80,
+    dateOfArrival: "2024-03-10",
+    category: "Dinnerware",
+    colors: ["#FF0000", "#c69b78", "#c69b78", "#ccd8ce"],
+    tag: ["dinner set", "handmade", "ceramic"],
+    categories: ["Dinnerware", "Tableware"],
+    image: [product1, product2, product3, product4, product5],
+    description:
+      "A beautifully handcrafted ceramic dinner set featuring a classic white and blue design. Perfect for elegant dining experiences.",
+
+    quantity: 1,
+  },
+  {
+    id: 2,
+    name: "Rustic Clay Tea Cups",
+    price: 39.99,
+    sold: 120,
+    dateOfArrival: "2024-02-20",
+    category: "Cookware",
+    colors: ["#c69b78", "#c69b78", "#ccd8ce"],
+    tag: ["tea cups", "rustic", "handmade"],
+    categories: ["Home-Holiday", "Tableware"],
+    image: [product6, product7, product8, product9, product10],
+    description:
+      "Enjoy your tea in these rustic, handcrafted clay tea cups. A perfect blend of tradition and elegance.",
+    quantity: 1,
+  },
+  {
+    id: 3,
+    name: "Glazed Ceramic Flower Pot",
+    price: 24.99,
+    sold: 95,
+    dateOfArrival: "2024-03-05",
+    category: "Holiday",
+    colors: ["#ccd8ce", "#b4555d", "#c69b78", "#ccd8ce"],
+    tag: ["flower pot", "glazed", "ceramic"],
+    categories: ["Holiday", "Gardening"],
+    image: [product1, product2, product3, product4, product5],
+    description:
+      "A stunning glazed ceramic flower pot, ideal for both indoor and outdoor plants. Adds charm to any space.",
+    quantity: 1,
+  },
+  {
+    id: 4,
+    name: "Vintage Ceramic Soup Bowls",
+    price: 49.99,
+    sold: 60,
+    dateOfArrival: "2024-01-30",
+    category: "Bowls",
+    colors: ["#b4555d", "#c69b78", "#ccd8ce"],
+    tag: ["soup bowls", "vintage", "ceramic"],
+    categories: ["Bowls", "Tableware"],
+    image: [product6, product7, product8, product9, product10],
+    description:
+      "Set of 4 vintage-style ceramic soup bowls, perfect for serving warm and hearty meals in style.",
+    quantity: 1,
+  },
+  {
+    id: 5,
+    name: "Matte Finish Coffee Mug",
+    price: 14.99,
+    sold: 150,
+    dateOfArrival: "2024-02-15",
+    category: "Home-Holiday",
+    colors: ["#9b92a1", "#FF0000", "#c69b78", "#ccd8ce"],
+    tag: ["coffee mug", "matte", "ceramic"],
+    categories: ["Home-Holiday", "Collection"],
+    image: [product1, product2, product3, product4, product5],
+    description:
+      "A sleek matte finish ceramic coffee mug designed for comfort and a stylish drinking experience.",
+    quantity: 1,
   },
 ];
 

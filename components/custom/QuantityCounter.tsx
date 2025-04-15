@@ -25,7 +25,7 @@ const QuantityCounter = ({
   };
 
   return (
-    <div className="flex items-center gap-6  border border-neutral-6 px-2 py-[7px] text-warm-black text-display-2">
+    <div className="flex items-center gap-6 w-32 justify-center  border border-neutral-6 px-2 py-[7px] text-warm-black text-display-2">
       <FiMinus onClick={decrease} className="text-neutral-6 cursor-pointer" />
 
       <span className="text-display-1 font-semibold">{quantity}</span>
