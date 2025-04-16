@@ -14,6 +14,9 @@ const Navbar = () => {
 
   const { data: session } = useSession();
 
+  const getInitial = (name?: string | null) =>
+    name ? name[0]?.toUpperCase() : "";
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md py-5 lg:px-32 px-8 flex items-center justify-between z-50 border border-b-neutral-5">
       {/* Mobile Hamburger Menu */}
@@ -84,17 +87,50 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
+      {/* Mobile Auth & Cart Icons */}
+      <div className="flex lg:hidden items-center gap-2 z-50">
+        {/* Auth - Google icon or Initial */}
+        {session?.user ? (
+          <div className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center text-sm font-bold text-neutral-800">
+            {getInitial(session?.user?.name)}
+          </div>
+        ) : (
+          <button onClick={() => signIn("google")}>
+            <FaGoogle className="w-5 h-5 text-neutral-700" />
+          </button>
+        )}
+
+        {/* Cart Icon */}
+        <Link href="/cart">
+          <Image
+            src="/icons/shopping_cart.png"
+            alt="Cart"
+            width={24}
+            height={24}
+          />
+        </Link>
+      </div>
+
       {/* Right Icons & Auth Button */}
-      <div className="relative flex items-center gap-4">
+      <div className="relative items-center gap-4 hidden lg:flex">
         <div className="flex items-center gap-2">
           {NAV_ICONS_NAVBAR.filter((icon) => {
             if (icon.alt === "Profile" && !session?.user) return false;
             return true;
-          }).map((icon, index) =>
-            icon.alt === "Profile" ? (
+          }).map((icon, index) => {
+            const isSearch = icon.alt === "Search";
+            const isProfile = icon.alt === "Profile";
+
+            const commonClass = isSearch
+              ? "hidden lg:flex"
+              : isProfile
+              ? "hidden lg:flex cursor-pointer"
+              : "flex";
+
+            return isProfile ? (
               <div
                 key={index}
-                className="relative hidden lg:flex cursor-pointer"
+                className={`relative ${commonClass}`}
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <Image src={icon.src} alt={icon.alt} width={24} height={24} />
@@ -134,7 +170,7 @@ const Navbar = () => {
               <Link
                 key={index}
                 href={icon.href}
-                className="relative flex items-center justify-center w-10 h-10"
+                className={`relative items-center justify-center w-10 h-10 ${commonClass}`}
               >
                 <Image
                   src={icon.src}
@@ -144,8 +180,8 @@ const Navbar = () => {
                   className="cursor-pointer"
                 />
               </Link>
-            )
-          )}
+            );
+          })}
         </div>
 
         {/* Auth Section */}
